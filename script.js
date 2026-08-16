@@ -20,17 +20,50 @@ function showClasses() {
 }
 
 function openClass(classNumber) {
-    document.getElementById("content").innerHTML =
-        `<h2>📖 Class ${classNumber}</h2>
-         <p>Subjects will be added here soon.</p>`;
+    const content = document.getElementById("content");
+
+    content.innerHTML = `
+        <h2>📖 Class ${classNumber}</h2>
+
+        <p>Select a subject:</p>
+
+        <button onclick="openSubject('Tamil')">தமிழ்</button>
+        <button onclick="openSubject('English')">English</button>
+        <button onclick="openSubject('Mathematics')">Mathematics</button>
+        <button onclick="openSubject('Science')">Science</button>
+        <button onclick="openSubject('Social Science')">Social Science</button>
+
+        <br>
+        <button onclick="showClasses()">⬅️ Back to Classes</button>
+    `;
+}
+
+function openSubject(subject) {
+    const content = document.getElementById("content");
+
+    content.innerHTML = `
+        <h2>📚 ${subject}</h2>
+
+        <p>Study materials for ${subject} will be added here.</p>
+
+        <button onclick="showClasses()">⬅️ Back to Classes</button>
+    `;
 }
 
 function showQuiz() {
-    document.getElementById("content").innerHTML =
-        "<h2>📝 Quizzes</h2><p>Quiz section coming soon!</p>";
+    const content = document.getElementById("content");
+
+    content.innerHTML = `
+        <h2>📝 Quizzes</h2>
+        <p>Quiz section coming soon!</p>
+    `;
 }
 
 function showMaterials() {
-    document.getElementById("content").innerHTML =
-        "<h2>📖 Study Materials</h2><p>Study materials coming soon!</p>";
+    const content = document.getElementById("content");
+
+    content.innerHTML = `
+        <h2>📖 Study Materials</h2>
+        <p>Study materials coming soon!</p>
+    `;
 }
