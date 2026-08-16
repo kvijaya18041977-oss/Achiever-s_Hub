@@ -141,22 +141,37 @@ function showClasses() {
 
 function openClass(classNumber) {
 
-    let html = `
+    const classData = curriculum[classNumber];
 
+    if (!classData) {
+        contentBox().innerHTML = `
+            <section>
+                <h2>📚 Class ${classNumber}</h2>
+                <p>Curriculum not available yet.</p>
+
+                ${button(
+                    "⬅️ Back to Classes",
+                    "showClasses()",
+                    "action-button back-button"
+                )}
+            </section>
+        `;
+
+        scrollToContent();
+        return;
+    }
+
+
+    let html = `
         <section>
 
-            <h2>
-                📚 Class ${classNumber}
-            </h2>
+            <h2>📚 Class ${classNumber}</h2>
 
-            <p>
-                Select a subject
-            </p>
-
+            <p>Select a subject</p>
     `;
 
 
-    subjects.forEach(function(subject) {
+    Object.keys(classData).forEach(function(subject) {
 
         html += button(
             subject,
@@ -175,18 +190,14 @@ function openClass(classNumber) {
 
 
     html += `
-
         </section>
-
     `;
 
 
     contentBox().innerHTML = html;
 
     scrollToContent();
-
 }
-
 
 /* ---------- SUBJECT ---------- */
 
