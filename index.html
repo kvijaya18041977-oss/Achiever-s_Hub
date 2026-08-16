@@ -3,38 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#3157d5">
+
     <title>ACHIEVERS HUB</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-    <h1>🎓 ACHIEVERS HUB</h1>
-    <p>Learn • Practise • Achieve</p>
-</header>
+    <!-- HEADER -->
+    <header class="top-header">
 
-<main>
+        <div class="logo">
+            🎓
+        </div>
 
-    <section id="home">
-        <h2>Welcome! 👋</h2>
-        <p>Your learning journey starts here.</p>
+        <div>
+            <h1>ACHIEVERS HUB</h1>
+            <p>Learn • Practise • Achieve</p>
+        </div>
 
-        <button onclick="showClasses()">📚 Classes 1–12</button>
-        <button onclick="showQuiz()">📝 Quiz</button>
-        <button onclick="showMaterials()">📖 Study Materials</button>
-        <button onclick="showProgress()">🏆 My Progress</button>
-    </section>
+    </header>
 
-    <section id="appContent"></section>
 
-</main>
+    <!-- MAIN APP -->
+    <main>
 
-<footer>
-    <p>© 2026 ACHIEVERS HUB</p>
-</footer>
+        <!-- HOME -->
+        <section id="homePage" class="page">
 
-<script src="script.js"></script>
+            <div class="welcome-card">
+
+                <h2>Welcome 👋</h2>
+
+                <p>
+                    Your learning journey starts here!
+                </p>
+
+            </div>
+
+
+            <div class="menu-grid">
+
+                <button class="menu-card"
+                        onclick="showClasses()">
+
+                    <span>📚</span>
+
+                    <strong>Classes 1–12</strong>
+
+                    <small>
+                        Learn your subjects
+                    </small>
+
+                </button>
+
+
+                <button class="menu-card"
+                        onclick="showQuiz()">
+
+                    <span>📝</span>
+
+                    <strong>Quizzes</strong>
+
+                    <small>
+                        Test your knowledge
+                    </small>
+
+                </button>
+
+
+                <button class="menu-card"
+                        onclick="showMaterials()">
+
+                    <span>📖</span>
+
+                    <strong>Study Materials</strong>
+
+                    <small>
+                        Notes and resources
+                    </small>
+
+                </button>
+
+
+                <button class="menu-card"
+                        onclick="showProgress()">
+
+                    <span>🏆</span>
+
+                    <strong>My Progress</strong>
+
+                    <small>
+                        View your points
+                    </small>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- DYNAMIC CONTENT -->
+        <section id="appContent"></section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 ACHIEVERS HUB
+        </p>
+
+        <p>
+            Learn • Practise • Achieve
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
 
 </body>
-</html>
+    </html>
