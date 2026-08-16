@@ -191,63 +191,87 @@ function openClass(classNumber) {
 /* ---------- SUBJECT ---------- */
 
 function openSubject(
-    subject,
-    classNumber
-) {
+function openSubject(subject, classNumber) {
 
-    let html = `
+    const content = contentBox();
 
-        <section>
+    if (classNumber === 1 && subject === "Mathematics") {
 
-            <h2>
-                📖 ${subject}
-            </h2>
+        content.innerHTML = `
+            <section>
 
-            <p>
-                Class ${classNumber}
-            </p>
+                <h2>📐 Class 1 Mathematics</h2>
 
-            <h3>
-                📚 Lessons
-            </h3>
+                <p>Select a chapter</p>
 
-    `;
+                ${button(
+                    "🔢 Chapter 1 — Numbers",
+                    "openMathChapter(1)",
+                    "action-button lesson-button"
+                )}
 
+                ${button(
+                    "➕ Chapter 2 — Addition",
+                    "openMathChapter(2)",
+                    "action-button lesson-button"
+                )}
 
-    lessons.forEach(function(
-        lesson,
-        index
-    ) {
+                ${button(
+                    "➖ Chapter 3 — Subtraction",
+                    "openMathChapter(3)",
+                    "action-button lesson-button"
+                )}
+
+                ${button(
+                    "🔷 Chapter 4 — Shapes",
+                    "openMathChapter(4)",
+                    "action-button lesson-button"
+                )}
+
+                ${button(
+                    "⬅️ Back to Subjects",
+                    "openClass(1)",
+                    "action-button back-button"
+                )}
+
+            </section>
+        `;
+
+    } else {
+
+        let html = `
+            <section>
+
+                <h2>📖 ${subject}</h2>
+
+                <p>Class ${classNumber}</p>
+
+                <h3>📚 Lessons</h3>
+        `;
+
+        lessons.forEach(function(lesson, index) {
+
+            html += button(
+                lesson,
+                `openLesson('${subject}', ${classNumber}, ${index + 1})`,
+                "action-button lesson-button"
+            );
+
+        });
 
         html += button(
-            lesson,
-            `openLesson('${subject}', ${classNumber}, ${index + 1})`,
-            "action-button lesson-button"
+            "⬅️ Back",
+            `openClass(${classNumber})`,
+            "action-button back-button"
         );
 
-    });
+        html += `</section>`;
 
-
-    html += button(
-        "⬅️ Back",
-        `openClass(${classNumber})`,
-        "action-button back-button"
-    );
-
-
-    html += `
-
-        </section>
-
-    `;
-
-
-    contentBox().innerHTML = html;
+        content.innerHTML = html;
+    }
 
     scrollToContent();
-
 }
-
 
 /* ---------- LESSON ---------- */
 
