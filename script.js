@@ -1,4 +1,4 @@
-function showClasses() {
+   function showClasses() {
     const content = document.getElementById("content");
 
     content.innerHTML = `
@@ -66,4 +66,4 @@ function showMaterials() {
         <h2>📖 Study Materials</h2>
         <p>Study materials coming soon!</p>
     `;
-}
+} 
