@@ -1,182 +1,273 @@
- function showClasses() {
-    const content = document.getElementById("content");
+let points = Number(localStorage.getItem("achieversPoints")) || 0;
 
-    content.innerHTML = `
-        <h2>📚 Select Your Class</h2>
+const subjects = [
+    "தமிழ்",
+    "English",
+    "Mathematics",
+    "Science",
+    "Social Science"
+];
 
-        <button onclick="openClass(1)">Class 1</button>
-        <button onclick="openClass(2)">Class 2</button>
-        <button onclick="openClass(3)">Class 3</button>
-        <button onclick="openClass(4)">Class 4</button>
-        <button onclick="openClass(5)">Class 5</button>
-        <button onclick="openClass(6)">Class 6</button>
-        <button onclick="openClass(7)">Class 7</button>
-        <button onclick="openClass(8)">Class 8</button>
-        <button onclick="openClass(9)">Class 9</button>
-        <button onclick="openClass(10)">Class 10</button>
-        <button onclick="openClass(11)">Class 11</button>
-        <button onclick="openClass(12)">Class 12</button>
+function getContent() {
+    return document.getElementById("appContent");
+}
+
+function showClasses() {
+
+    getContent().innerHTML = `
+        <section>
+            <h2>📚 Select Your Class</h2>
+
+            ${Array.from({length: 12}, (_, i) =>
+                `<button onclick="openClass(${i + 1})">
+                    Class ${i + 1}
+                </button>`
+            ).join("")}
+
+            <button onclick="goHome()">🏠 Home</button>
+        </section>
     `;
+
+    scrollToContent();
 }
 
 
 function openClass(classNumber) {
-    const content = document.getElementById("content");
 
-    if (classNumber === 1) {
+    let subjectButtons = "";
 
-        content.innerHTML = `
-            <h2>📚 Class 1</h2>
+    subjects.forEach(subject => {
+        subjectButtons += `
+            <button onclick="openSubject('${subject}', ${classNumber})">
+                ${subject}
+            </button>
+        `;
+    });
+
+    getContent().innerHTML = `
+        <section>
+            <h2>📚 Class ${classNumber}</h2>
             <p>Select a subject</p>
 
-            <button onclick="openSubject('Tamil')">தமிழ்</button>
-            <button onclick="openSubject('English')">English</button>
-            <button onclick="openSubject('Mathematics')">Mathematics</button>
-            <button onclick="openSubject('Science')">Science</button>
+            ${subjectButtons}
 
-            <button onclick="showClasses()">⬅️ Back to Classes</button>
-        `;
+            <button onclick="showClasses()">⬅️ Back</button>
+        </section>
+    `;
 
-    } else {
-
-        content.innerHTML = `
-            <h2>📚 Class ${classNumber}</h2>
-            <p>Subjects will be added soon.</p>
-
-            <button onclick="showClasses()">⬅️ Back to Classes</button>
-        `;
-    }
+    scrollToContent();
 }
 
 
-function openSubject(subject) {
-    const content = document.getElementById("content");
+function openSubject(subject, classNumber) {
 
-    if (subject === "Tamil") {
+    getContent().innerHTML = `
+        <section>
+            <h2>📖 ${subject}</h2>
 
-        content.innerHTML = `
-            <h2>📕 Class 1 - தமிழ்</h2>
+            <p>Class ${classNumber}</p>
 
-            <button onclick="openLesson('Tamil Lesson 1')">
-                பாடம் 1
-            </button>
+            <h3>📚 Lessons</h3>
 
-            <button onclick="openLesson('Tamil Lesson 2')">
-                பாடம் 2
-            </button>
-
-            <button onclick="openLesson('Tamil Lesson 3')">
-                பாடம் 3
-            </button>
-
-            <button onclick="openLesson('Tamil Lesson 4')">
-                பாடம் 4
-            </button>
-
-            <button onclick="openClass(1)">⬅️ Back</button>
-        `;
-
-    } else if (subject === "English") {
-
-        content.innerHTML = `
-            <h2>📘 Class 1 - English</h2>
-
-            <button onclick="openLesson('English Lesson 1')">
+            <button onclick="openLesson('${subject}', ${classNumber}, 1)">
                 Lesson 1
             </button>
 
-            <button onclick="openLesson('English Lesson 2')">
+            <button onclick="openLesson('${subject}', ${classNumber}, 2)">
                 Lesson 2
             </button>
 
-            <button onclick="openLesson('English Lesson 3')">
+            <button onclick="openLesson('${subject}', ${classNumber}, 3)">
                 Lesson 3
             </button>
 
-            <button onclick="openClass(1)">⬅️ Back</button>
-        `;
-
-    } else if (subject === "Mathematics") {
-
-        content.innerHTML = `
-            <h2>📐 Class 1 - Mathematics</h2>
-
-            <button onclick="openLesson('Math Lesson 1')">
-                Chapter 1
+            <button onclick="openLesson('${subject}', ${classNumber}, 4)">
+                Lesson 4
             </button>
 
-            <button onclick="openLesson('Math Lesson 2')">
-                Chapter 2
+            <button onclick="openClass(${classNumber})">
+                ⬅️ Back
             </button>
+        </section>
+    `;
 
-            <button onclick="openLesson('Math Lesson 3')">
-                Chapter 3
-            </button>
-
-            <button onclick="openClass(1)">⬅️ Back</button>
-        `;
-
-    } else if (subject === "Science") {
-
-        content.innerHTML = `
-            <h2>🔬 Class 1 - Science</h2>
-
-            <button onclick="openLesson('Science Lesson 1')">
-                Lesson 1
-            </button>
-
-            <button onclick="openLesson('Science Lesson 2')">
-                Lesson 2
-            </button>
-
-            <button onclick="openClass(1)">⬅️ Back</button>
-        `;
-    }
+    scrollToContent();
 }
 
 
-function openLesson(lesson) {
-    const content = document.getElementById("content");
+function openLesson(subject, classNumber, lessonNumber) {
 
-    content.innerHTML = `
-        <h2>📖 ${lesson}</h2>
+    getContent().innerHTML = `
+        <section>
 
-        <h3>📚 Study Notes</h3>
+            <h2>📖 ${subject}</h2>
 
-        <p>
-            Welcome to the lesson!
-        </p>
+            <p>Class ${classNumber} • Lesson ${lessonNumber}</p>
 
-        <p>
-            Lesson content will be added here.
-            You can learn, practise and revise this topic.
-        </p>
+            <div class="card">
 
-        <button onclick="showClasses()">⬅️ Back to Classes</button>
+                <h3>📚 Study Notes</h3>
+
+                <p>
+                    Welcome to this lesson!
+                </p>
+
+                <p>
+                    Study the lesson carefully and practise
+                    the important concepts.
+                </p>
+
+            </div>
+
+            <button onclick="addPoints(10)">
+                ⭐ Complete Lesson +10 Points
+            </button>
+
+            <button onclick="openSubject('${subject}', ${classNumber})">
+                ⬅️ Back to Lessons
+            </button>
+
+        </section>
     `;
+
+    scrollToContent();
 }
 
 
 function showQuiz() {
-    const content = document.getElementById("content");
 
-    content.innerHTML = `
-        <h2>📝 Quizzes</h2>
+    getContent().innerHTML = `
+        <section>
 
-        <p>Quiz section coming soon!</p>
+            <h2>📝 Quick Quiz</h2>
+
+            <div class="card">
+
+                <h3>What is 5 + 5?</h3>
+
+                <button onclick="checkAnswer(this, true)">
+                    10
+                </button>
+
+                <button onclick="checkAnswer(this, false)">
+                    15
+                </button>
+
+                <button onclick="checkAnswer(this, false)">
+                    20
+                </button>
+
+            </div>
+
+            <button onclick="goHome()">🏠 Home</button>
+
+        </section>
     `;
+
+    scrollToContent();
+}
+
+
+function checkAnswer(button, correct) {
+
+    if (correct) {
+
+        button.classList.add("correct");
+
+        addPoints(10);
+
+        button.innerText = "✅ Correct! +10 points";
+
+    } else {
+
+        button.classList.add("wrong");
+
+        button.innerText = "❌ Try again";
+
+    }
+}
+
+
+function addPoints(amount) {
+
+    points += amount;
+
+    localStorage.setItem("achieversPoints", points);
+
+    alert(`🎉 You earned ${amount} points!`);
+}
+
+
+function showProgress() {
+
+    getContent().innerHTML = `
+        <section>
+
+            <h2>🏆 My Progress</h2>
+
+            <div class="points">
+                ⭐ ${points} Points
+            </div>
+
+            <p>
+                Keep learning and earn more points!
+            </p>
+
+            <button onclick="goHome()">🏠 Home</button>
+
+        </section>
+    `;
+
+    scrollToContent();
 }
 
 
 function showMaterials() {
-    const content = document.getElementById("content");
 
-    const contentBox = document.getElementById("content");
+    getContent().innerHTML = `
+        <section>
 
-    contentBox.innerHTML = `
-        <h2>📖 Study Materials</h2>
+            <h2>📖 Study Materials</h2>
 
-        <p>Study materials coming soon!</p>
+            <button onclick="showClasses()">
+                📚 Class-wise Materials
+            </button>
+
+            <div class="card">
+                <h3>📌 Coming Soon</h3>
+                <p>
+                    Notes, PDFs and learning resources
+                    will be added here.
+                </p>
+            </div>
+
+            <button onclick="goHome()">🏠 Home</button>
+
+        </section>
     `;
-}  
-      
+
+    scrollToContent();
+}
+
+
+function goHome() {
+
+    getContent().innerHTML = "";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+function scrollToContent() {
+
+    setTimeout(() => {
+
+        getContent().scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 100);
+}
