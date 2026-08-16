@@ -201,88 +201,70 @@ function openClass(classNumber) {
 
 /* ---------- SUBJECT ---------- */
 
-function openSubject(
-function openSubject(subject, classNumber) {
 
-    const content = contentBox();
+        function openSubject(subject, classNumber) {
 
-    if (classNumber === 1 && subject === "Mathematics") {
+    const classData = curriculum[classNumber];
 
-        content.innerHTML = `
-            <section>
+    const chapters = classData
+        ? classData[subject]
+        : [];
 
-                <h2>📐 Class 1 Mathematics</h2>
+    let html = `
+        <section>
 
-                <p>Select a chapter</p>
+            <h2>📖 ${subject}</h2>
 
-                ${button(
-                    "🔢 Chapter 1 — Numbers",
-                    "openMathChapter(1)",
-                    "action-button lesson-button"
-                )}
+            <p>Class ${classNumber}</p>
 
-                ${button(
-                    "➕ Chapter 2 — Addition",
-                    "openMathChapter(2)",
-                    "action-button lesson-button"
-                )}
+            <h3>📚 Chapters</h3>
+    `;
 
-                ${button(
-                    "➖ Chapter 3 — Subtraction",
-                    "openMathChapter(3)",
-                    "action-button lesson-button"
-                )}
 
-                ${button(
-                    "🔷 Chapter 4 — Shapes",
-                    "openMathChapter(4)",
-                    "action-button lesson-button"
-                )}
+    if (chapters.length === 0) {
 
-                ${button(
-                    "⬅️ Back to Subjects",
-                    "openClass(1)",
-                    "action-button back-button"
-                )}
+        html += `
+            <div class="info-card">
+                <h3>🚧 Content coming soon</h3>
 
-            </section>
+                <p>
+                    Chapters for this subject
+                    will be added here.
+                </p>
+            </div>
         `;
 
     } else {
 
-        let html = `
-            <section>
-
-                <h2>📖 ${subject}</h2>
-
-                <p>Class ${classNumber}</p>
-
-                <h3>📚 Lessons</h3>
-        `;
-
-        lessons.forEach(function(lesson, index) {
+        chapters.forEach(function(chapter, index) {
 
             html += button(
-                lesson,
-                `openLesson('${subject}', ${classNumber}, ${index + 1})`,
+                `📖 ${chapter.title}`,
+                `openCurriculumLesson(${classNumber}, '${subject}', ${index})`,
                 "action-button lesson-button"
             );
 
         });
 
-        html += button(
-            "⬅️ Back",
-            `openClass(${classNumber})`,
-            "action-button back-button"
-        );
-
-        html += `</section>`;
-
-        content.innerHTML = html;
     }
 
+
+    html += button(
+        "⬅️ Back to Subjects",
+        `openClass(${classNumber})`,
+        "action-button back-button"
+    );
+
+
+    html += `
+        </section>
+    `;
+
+
+    contentBox().innerHTML = html;
+
     scrollToContent();
-}
+        }
 
 /* ---------- LESSON ---------- */
 
