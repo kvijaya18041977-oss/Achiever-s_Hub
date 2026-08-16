@@ -93,6 +93,26 @@ function showQuiz() {
         <p>Quiz section coming soon!</p>
     `;
 }
+function openLesson(lesson) {
+    const content = document.getElementById("content");
+
+    content.innerHTML = `
+        <h2>📖 ${lesson}</h2>
+
+        <p>
+            Welcome to the lesson!
+        </p>
+
+        <h3>📚 Study Notes</h3>
+
+        <p>
+            Lesson content will be added here.
+            You can learn, practise and revise this topic.
+        </p>
+
+        <button onclick="showClasses()">⬅️ Back to Classes</button>
+    `;
+}
 
 function showMaterials() {
     const content = document.getElementById("content");
