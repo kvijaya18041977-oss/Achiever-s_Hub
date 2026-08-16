@@ -4,23 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACHIEVERS HUB</title>
-<link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<header>
     <h1>🎓 ACHIEVERS HUB</h1>
-
     <p>Learn • Practise • Achieve</p>
+</header>
 
-    <h2>Welcome to Achievers Hub!</h2>
+<main>
 
-    <button onclick="showClasses()">📚 Classes 1–12</button>
-<button onclick="showQuiz()">📝 Quizzes</button>
-<button onclick="showMaterials()">📖 Study Materials</button>
+    <section id="home">
+        <h2>Welcome! 👋</h2>
+        <p>Your learning journey starts here.</p>
 
-<div id="content"></div>
-<div id="content"></div>
+        <button onclick="showClasses()">📚 Classes 1–12</button>
+        <button onclick="showQuiz()">📝 Quiz</button>
+        <button onclick="showMaterials()">📖 Study Materials</button>
+        <button onclick="showProgress()">🏆 My Progress</button>
+    </section>
+
+    <section id="appContent"></section>
+
+</main>
+
+<footer>
+    <p>© 2026 ACHIEVERS HUB</p>
+</footer>
+
 <script src="script.js"></script>
 
 </body>
