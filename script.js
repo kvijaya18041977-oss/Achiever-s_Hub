@@ -1,39 +1,4 @@
-   function openSubject(subject) {
-    const content = document.getElementById("content");
-
-    if (subject === "Tamil") {
-        content.innerHTML = `
-            <h2>📕 Class 1 - தமிழ்</h2>
-            <button onclick="openLesson('Tamil Lesson 1')">பாடம் 1</button>
-            <button onclick="openLesson('Tamil Lesson 2')">பாடம் 2</button>
-            <button onclick="openLesson('Tamil Lesson 3')">பாடம் 3</button>
-            <button onclick="openLesson('Tamil Lesson 4')">பாடம் 4</button>
-        `;
-    } 
-    else if (subject === "English") {
-        content.innerHTML = `
-            <h2>📘 Class 1 - English</h2>
-            <button onclick="openLesson('English Lesson 1')">Lesson 1</button>
-            <button onclick="openLesson('English Lesson 2')">Lesson 2</button>
-            <button onclick="openLesson('English Lesson 3')">Lesson 3</button>
-        `;
-    } 
-    else if (subject === "Mathematics") {
-        content.innerHTML = `
-            <h2>📐 Class 1 - Mathematics</h2>
-            <button onclick="openLesson('Math Lesson 1')">Chapter 1</button>
-            <button onclick="openLesson('Math Lesson 2')">Chapter 2</button>
-            <button onclick="openLesson('Math Lesson 3')">Chapter 3</button>
-        `;
-    } 
-    else if (subject === "Science") {
-        content.innerHTML = `
-            <h2>🔬 Class 1 - Science</h2>
-            <button onclick="openLesson('Science Lesson 1')">Lesson 1</button>
-            <button onclick="openLesson('Science Lesson 2')">Lesson 2</button>
-        `;
-    }
-   }
+ function showClasses() {
     const content = document.getElementById("content");
 
     content.innerHTML = `
@@ -54,56 +19,133 @@
     `;
 }
 
+
 function openClass(classNumber) {
     const content = document.getElementById("content");
 
-    content.innerHTML = `
-        <h2>📖 Class ${classNumber}</h2>
+    if (classNumber === 1) {
 
-        <p>Select a subject:</p>
+        content.innerHTML = `
+            <h2>📚 Class 1</h2>
+            <p>Select a subject</p>
 
-        <button onclick="openSubject('Tamil')">தமிழ்</button>
-        <button onclick="openSubject('English')">English</button>
-        <button onclick="openSubject('Mathematics')">Mathematics</button>
-        <button onclick="openSubject('Science')">Science</button>
-        <button onclick="openSubject('Social Science')">Social Science</button>
+            <button onclick="openSubject('Tamil')">தமிழ்</button>
+            <button onclick="openSubject('English')">English</button>
+            <button onclick="openSubject('Mathematics')">Mathematics</button>
+            <button onclick="openSubject('Science')">Science</button>
 
-        <br>
-        <button onclick="showClasses()">⬅️ Back to Classes</button>
-    `;
+            <button onclick="showClasses()">⬅️ Back to Classes</button>
+        `;
+
+    } else {
+
+        content.innerHTML = `
+            <h2>📚 Class ${classNumber}</h2>
+            <p>Subjects will be added soon.</p>
+
+            <button onclick="showClasses()">⬅️ Back to Classes</button>
+        `;
+    }
 }
+
 
 function openSubject(subject) {
     const content = document.getElementById("content");
 
-    content.innerHTML = `
-        <h2>📚 ${subject}</h2>
+    if (subject === "Tamil") {
 
-        <p>Study materials for ${subject} will be added here.</p>
+        content.innerHTML = `
+            <h2>📕 Class 1 - தமிழ்</h2>
 
-        <button onclick="showClasses()">⬅️ Back to Classes</button>
-    `;
+            <button onclick="openLesson('Tamil Lesson 1')">
+                பாடம் 1
+            </button>
+
+            <button onclick="openLesson('Tamil Lesson 2')">
+                பாடம் 2
+            </button>
+
+            <button onclick="openLesson('Tamil Lesson 3')">
+                பாடம் 3
+            </button>
+
+            <button onclick="openLesson('Tamil Lesson 4')">
+                பாடம் 4
+            </button>
+
+            <button onclick="openClass(1)">⬅️ Back</button>
+        `;
+
+    } else if (subject === "English") {
+
+        content.innerHTML = `
+            <h2>📘 Class 1 - English</h2>
+
+            <button onclick="openLesson('English Lesson 1')">
+                Lesson 1
+            </button>
+
+            <button onclick="openLesson('English Lesson 2')">
+                Lesson 2
+            </button>
+
+            <button onclick="openLesson('English Lesson 3')">
+                Lesson 3
+            </button>
+
+            <button onclick="openClass(1)">⬅️ Back</button>
+        `;
+
+    } else if (subject === "Mathematics") {
+
+        content.innerHTML = `
+            <h2>📐 Class 1 - Mathematics</h2>
+
+            <button onclick="openLesson('Math Lesson 1')">
+                Chapter 1
+            </button>
+
+            <button onclick="openLesson('Math Lesson 2')">
+                Chapter 2
+            </button>
+
+            <button onclick="openLesson('Math Lesson 3')">
+                Chapter 3
+            </button>
+
+            <button onclick="openClass(1)">⬅️ Back</button>
+        `;
+
+    } else if (subject === "Science") {
+
+        content.innerHTML = `
+            <h2>🔬 Class 1 - Science</h2>
+
+            <button onclick="openLesson('Science Lesson 1')">
+                Lesson 1
+            </button>
+
+            <button onclick="openLesson('Science Lesson 2')">
+                Lesson 2
+            </button>
+
+            <button onclick="openClass(1)">⬅️ Back</button>
+        `;
+    }
 }
 
-function showQuiz() {
-    const content = document.getElementById("content");
 
-    content.innerHTML = `
-        <h2>📝 Quizzes</h2>
-        <p>Quiz section coming soon!</p>
-    `;
-}
 function openLesson(lesson) {
     const content = document.getElementById("content");
 
     content.innerHTML = `
         <h2>📖 ${lesson}</h2>
 
+        <h3>📚 Study Notes</h3>
+
         <p>
             Welcome to the lesson!
         </p>
-
-        <h3>📚 Study Notes</h3>
 
         <p>
             Lesson content will be added here.
@@ -114,11 +156,27 @@ function openLesson(lesson) {
     `;
 }
 
-function showMaterials() {
+
+function showQuiz() {
     const content = document.getElementById("content");
 
     content.innerHTML = `
+        <h2>📝 Quizzes</h2>
+
+        <p>Quiz section coming soon!</p>
+    `;
+}
+
+
+function showMaterials() {
+    const content = document.getElementById("content");
+
+    const contentBox = document.getElementById("content");
+
+    contentBox.innerHTML = `
         <h2>📖 Study Materials</h2>
+
         <p>Study materials coming soon!</p>
     `;
-} 
+}  
+      
