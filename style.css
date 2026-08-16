@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7ff;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+h1 {
+    font-size: 32px;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 18px;
+    margin: 12px 0 30px;
+}
+
+h2 {
+    margin-bottom: 25px;
+}
+
+button {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+button:active {
+    transform: scale(0.97);
+}
