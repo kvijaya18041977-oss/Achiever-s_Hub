@@ -1,4 +1,39 @@
-   function showClasses() {
+   function openSubject(subject) {
+    const content = document.getElementById("content");
+
+    if (subject === "Tamil") {
+        content.innerHTML = `
+            <h2>📕 Class 1 - தமிழ்</h2>
+            <button onclick="openLesson('Tamil Lesson 1')">பாடம் 1</button>
+            <button onclick="openLesson('Tamil Lesson 2')">பாடம் 2</button>
+            <button onclick="openLesson('Tamil Lesson 3')">பாடம் 3</button>
+            <button onclick="openLesson('Tamil Lesson 4')">பாடம் 4</button>
+        `;
+    } 
+    else if (subject === "English") {
+        content.innerHTML = `
+            <h2>📘 Class 1 - English</h2>
+            <button onclick="openLesson('English Lesson 1')">Lesson 1</button>
+            <button onclick="openLesson('English Lesson 2')">Lesson 2</button>
+            <button onclick="openLesson('English Lesson 3')">Lesson 3</button>
+        `;
+    } 
+    else if (subject === "Mathematics") {
+        content.innerHTML = `
+            <h2>📐 Class 1 - Mathematics</h2>
+            <button onclick="openLesson('Math Lesson 1')">Chapter 1</button>
+            <button onclick="openLesson('Math Lesson 2')">Chapter 2</button>
+            <button onclick="openLesson('Math Lesson 3')">Chapter 3</button>
+        `;
+    } 
+    else if (subject === "Science") {
+        content.innerHTML = `
+            <h2>🔬 Class 1 - Science</h2>
+            <button onclick="openLesson('Science Lesson 1')">Lesson 1</button>
+            <button onclick="openLesson('Science Lesson 2')">Lesson 2</button>
+        `;
+    }
+   }
     const content = document.getElementById("content");
 
     content.innerHTML = `
