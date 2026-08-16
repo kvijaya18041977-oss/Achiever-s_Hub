@@ -4,88 +4,408 @@
     padding: 0;
 }
 
+
 body {
-    font-family: Arial, sans-serif;
-    background: #eef3ff;
-    color: #222;
-    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #eef2ff;
+
+    color: #202020;
+
+    min-height: 100vh;
 }
 
-header {
-    background: linear-gradient(135deg, #4b6cff, #7b4dff);
+
+/* HEADER */
+
+.top-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 22px 18px;
+
     color: white;
-    padding: 35px 15px;
-    border-radius: 0 0 25px 25px;
+
+    background: linear-gradient(
+        135deg,
+        #3157d5,
+        #7546d8
+    );
+
+    border-radius: 0 0 28px 28px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.15);
 }
 
-header h1 {
+
+.logo {
+
+    width: 58px;
+
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(255,255,255,0.2);
+
+    border-radius: 18px;
+
     font-size: 32px;
-    margin-bottom: 10px;
 }
 
-header p {
-    font-size: 17px;
+
+.top-header h1 {
+
+    font-size: 27px;
+
+    margin-bottom: 5px;
 }
+
+
+.top-header p {
+
+    font-size: 14px;
+
+    opacity: 0.95;
+}
+
+
+/* MAIN */
 
 main {
-    width: 95%;
-    max-width: 600px;
-    margin: 25px auto;
+
+    width: 94%;
+
+    max-width: 700px;
+
+    margin: 22px auto;
 }
 
-section {
+
+/* PAGE */
+
+.page,
+#appContent section {
+
     background: white;
-    padding: 25px 15px;
+
+    padding: 22px;
+
     margin-bottom: 20px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
 }
+
+
+/* WELCOME */
+
+.welcome-card {
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+
+.welcome-card h2 {
+
+    font-size: 25px;
+
+    margin-bottom: 8px;
+}
+
+
+.welcome-card p {
+
+    color: #666;
+
+    font-size: 16px;
+}
+
+
+/* MENU */
+
+.menu-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+
+.menu-card {
+
+    border: none;
+
+    background: #f5f7ff;
+
+    padding: 20px 12px;
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    min-height: 150px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transition: 0.2s;
+}
+
+
+.menu-card span {
+
+    font-size: 34px;
+}
+
+
+.menu-card strong {
+
+    font-size: 16px;
+}
+
+
+.menu-card small {
+
+    color: #666;
+
+    font-size: 12px;
+}
+
+
+.menu-card:hover {
+
+    transform: translateY(-3px);
+}
+
+
+/* HEADINGS */
 
 h2 {
+
+    text-align: center;
+
     margin-bottom: 15px;
 }
 
+
+h3 {
+
+    margin: 15px 0;
+}
+
+
+p {
+
+    line-height: 1.6;
+}
+
+
+/* BUTTONS */
+
 button {
+
+    font-family: inherit;
+}
+
+
+.action-button {
+
     display: block;
-    width: 95%;
-    max-width: 450px;
-    margin: 12px auto;
-    padding: 16px;
+
+    width: 100%;
+
     border: none;
-    border-radius: 14px;
-    background: #4b6cff;
-    color: white;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-}
 
-button:active {
-    transform: scale(0.97);
-}
-
-.card {
-    background: #f4f6ff;
     padding: 15px;
-    margin: 12px 0;
+
+    margin: 10px 0;
+
     border-radius: 14px;
+
+    background: #3157d5;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
 }
+
+
+.action-button:hover {
+
+    opacity: 0.9;
+}
+
+
+.action-button:active {
+
+    transform: scale(0.98);
+}
+
+
+/* BACK BUTTON */
+
+.back-button {
+
+    background: #555;
+}
+
+
+/* CLASS BUTTON */
+
+.class-button {
+
+    background: #3157d5;
+}
+
+
+/* SUBJECT */
+
+.subject-button {
+
+    background: #7546d8;
+}
+
+
+/* LESSON */
+
+.lesson-button {
+
+    background: #008b72;
+}
+
+
+/* QUIZ */
+
+.quiz-option {
+
+    background: #3157d5;
+
+    margin: 10px 0;
+}
+
+
+.quiz-question {
+
+    background: #f5f7ff;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    margin-bottom: 15px;
+}
+
+
+/* CORRECT / WRONG */
 
 .correct {
-    background: #d9f7df;
+
+    background: #168a4b !important;
 }
+
 
 .wrong {
-    background: #ffe0e0;
+
+    background: #c63c3c !important;
 }
 
-.points {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 15px;
+
+/* POINTS */
+
+.points-box {
+
+    text-align: center;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    background: #f5f7ff;
+
+    margin: 15px 0;
 }
+
+
+.points-number {
+
+    font-size: 42px;
+
+    font-weight: bold;
+
+    margin: 10px;
+}
+
+
+/* INFO CARD */
+
+.info-card {
+
+    background: #f5f7ff;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    margin: 12px 0;
+}
+
+
+/* FOOTER */
 
 footer {
-    padding: 20px;
-    color: #555;
+
+    text-align: center;
+
+    padding: 25px;
+
+    color: #666;
+
+    font-size: 13px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+
+    .menu-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .top-header h1 {
+
+        font-size: 23px;
+    }
+
     }
