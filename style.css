@@ -1,3 +1,13 @@
+/* =========================================
+   ACHIEVERS HUB
+   Modern Educational App CSS
+========================================= */
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,18 +15,36 @@
 }
 
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-
-    background: #eef2ff;
-
-    color: #202020;
-
-    min-height: 100vh;
+html {
+    scroll-behavior: smooth;
 }
 
 
-/* HEADER */
+body {
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #eef3ff 0%,
+            #f8faff 50%,
+            #ffffff 100%
+        );
+
+    color: #202124;
+
+    min-height: 100vh;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
 
 .top-header {
 
@@ -26,15 +54,823 @@ body {
 
     gap: 14px;
 
-    padding: 22px 18px;
+    padding: 18px 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3157d5,
+            #5b7cff
+        );
 
     color: white;
 
-    background: linear-gradient(
-        135deg,
-        #3157d5,
-        #7546d8
-    );
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.15);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+.logo {
+
+    width: 52px;
+
+    height: 52px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: white;
+
+    border-radius: 16px;
+
+    font-size: 28px;
+
+    box-shadow:
+        0 4px 10px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+.header-text h1 {
+
+    font-size: 23px;
+
+    letter-spacing: 1px;
+
+    font-weight: 800;
+}
+
+
+.header-text p {
+
+    font-size: 13px;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 20px 15px 40px;
+}
+
+
+.page,
+#appContent {
+
+    width: 100%;
+}
+
+
+/* =========================================
+   WELCOME CARD
+========================================= */
+
+.welcome-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #edf2ff
+        );
+
+    border-radius: 24px;
+
+    padding: 25px 20px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 8px 25px
+        rgba(49, 87, 213, 0.12);
+
+    border: 1px solid #e1e7ff;
+}
+
+
+.welcome-card h2 {
+
+    color: #3157d5;
+
+    font-size: 24px;
+
+    margin-bottom: 8px;
+}
+
+
+.welcome-card p {
+
+    color: #555;
+
+    font-size: 15px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   MENU GRID
+========================================= */
+
+.menu-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   MENU CARD
+========================================= */
+
+.menu-card {
+
+    border: none;
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 22px 14px;
+
+    min-height: 155px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    gap: 7px;
+
+    box-shadow:
+        0 6px 18px
+        rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #e9ecf5;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.menu-card:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(49, 87, 213, 0.16);
+}
+
+
+.menu-card:active {
+
+    transform:
+        scale(0.97);
+}
+
+
+.menu-icon {
+
+    font-size: 38px;
+
+    margin-bottom: 4px;
+}
+
+
+.menu-card strong {
+
+    font-size: 16px;
+
+    color: #222;
+}
+
+
+.menu-card small {
+
+    font-size: 12px;
+
+    color: #777;
+}
+
+
+/* =========================================
+   DYNAMIC SECTIONS
+========================================= */
+
+#appContent section {
+
+    background: white;
+
+    border-radius: 22px;
+
+    padding: 22px 17px;
+
+    margin-top: 20px;
+
+    box-shadow:
+        0 7px 22px
+        rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #e8ebf3;
+}
+
+
+#appContent h2 {
+
+    color: #3157d5;
+
+    text-align: center;
+
+    font-size: 24px;
+
+    margin-bottom: 5px;
+}
+
+
+#appContent > section > p {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 18px;
+}
+
+
+#appContent h3 {
+
+    color: #333;
+
+    margin-top: 15px;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.action-button {
+
+    width: 100%;
+
+    border: none;
+
+    border-radius: 14px;
+
+    padding: 14px 16px;
+
+    margin: 7px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3157d5,
+            #5274e8
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 10px
+        rgba(49, 87, 213, 0.2);
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+
+.action-button:hover {
+
+    opacity: 0.92;
+
+    transform:
+        translateY(-2px);
+}
+
+
+.action-button:active {
+
+    transform:
+        scale(0.98);
+}
+
+
+/* =========================================
+   CLASS BUTTONS
+========================================= */
+
+.class-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #3157d5,
+            #6685ed
+        );
+
+    font-size: 16px;
+
+    padding: 15px;
+}
+
+
+/* =========================================
+   SUBJECT BUTTONS
+========================================= */
+
+.subject-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #673ab7,
+            #8b5fd3
+        );
+}
+
+
+/* =========================================
+   LESSON BUTTONS
+========================================= */
+
+.lesson-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #00897b,
+            #26a69a
+        );
+
+    text-align: left;
+}
+
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+.back-button {
+
+    background:
+        linear-gradient(
+            135deg,
+            #555,
+            #777
+        );
+
+    margin-top: 18px;
+}
+
+
+/* =========================================
+   INFO CARD
+========================================= */
+
+.info-card {
+
+    background:
+        #f5f7ff;
+
+    border-radius: 16px;
+
+    padding: 17px;
+
+    margin: 14px 0;
+
+    border-left:
+        5px solid #3157d5;
+}
+
+
+.info-card h3 {
+
+    margin-top: 0;
+
+    color: #3157d5;
+}
+
+
+.info-card p {
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   POINTS
+========================================= */
+
+.points-box {
+
+    background:
+        linear-gradient(
+            135deg,
+            #3157d5,
+            #6b86ed
+        );
+
+    color: white;
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    margin: 18px 0;
+
+    box-shadow:
+        0 8px 20px
+        rgba(49, 87, 213, 0.25);
+}
+
+
+.points-box div:first-child {
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+.points-number {
+
+    font-size: 48px;
+
+    font-weight: 900;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   HOME POINTS
+========================================= */
+
+.home-points {
+
+    text-align: center;
+
+    margin-top: 20px;
+}
+
+
+.home-points .action-button {
+
+    margin-top: 12px;
+}
+
+
+/* =========================================
+   QUIZ
+========================================= */
+
+.quiz-question {
+
+    background:
+        #f7f8fc;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    margin: 15px 0;
+
+    border: 1px solid #e4e7ef;
+}
+
+
+.quiz-question h3 {
+
+    color: #3157d5;
+
+    margin-top: 0;
+}
+
+
+.quiz-question p {
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    margin: 10px 0 15px;
+}
+
+
+.quiz-option {
+
+    background:
+        white;
+
+    color: #333;
+
+    border:
+        2px solid #dce1ef;
+
+    box-shadow: none;
+
+    text-align: left;
+}
+
+
+.quiz-option:hover {
+
+    background:
+        #f0f3ff;
+}
+
+
+.quiz-option.correct {
+
+    background:
+        #dff6e8;
+
+    border-color:
+        #28a745;
+
+    color:
+        #176b2d;
+}
+
+
+.quiz-option.wrong {
+
+    background:
+        #ffe4e4;
+
+    border-color:
+        #dc3545;
+
+    color:
+        #9b1c25;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 25px 15px 30px;
+
+    color: #777;
+
+    font-size: 13px;
+
+    border-top:
+        1px solid #e5e5e5;
+
+    margin-top: 20px;
+}
+
+
+footer p {
+
+    margin: 3px 0;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .top-header {
+
+        padding: 14px;
+
+    }
+
+
+    .logo {
+
+        width: 46px;
+
+        height: 46px;
+
+        font-size: 24px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .header-text h1 {
+
+        font-size: 19px;
+
+    }
+
+
+    .header-text p {
+
+        font-size: 11px;
+
+    }
+
+
+    main {
+
+        padding:
+            15px 12px 30px;
+
+    }
+
+
+    .welcome-card {
+
+        padding: 22px 15px;
+
+    }
+
+
+    .welcome-card h2 {
+
+        font-size: 21px;
+
+    }
+
+
+    .menu-grid {
+
+        gap: 10px;
+
+    }
+
+
+    .menu-card {
+
+        min-height: 145px;
+
+        padding: 16px 8px;
+
+    }
+
+
+    .menu-icon {
+
+        font-size: 32px;
+
+    }
+
+
+    .menu-card strong {
+
+        font-size: 14px;
+
+    }
+
+
+    .menu-card small {
+
+        font-size: 11px;
+
+    }
+
+
+    #appContent section {
+
+        padding:
+            19px 13px;
+
+    }
+
+
+    #appContent h2 {
+
+        font-size: 21px;
+
+    }
+
+
+    .points-number {
+
+        font-size: 42px;
+
+    }
+
+}
+
+
+/* =========================================
+   TABLET / DESKTOP
+========================================= */
+
+@media (min-width: 700px) {
+
+    .menu-grid {
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+    }
+
+
+    .menu-card {
+
+        min-height: 180px;
+
+    }
+
+
+    .action-button {
+
+        max-width: 700px;
+
+        display: block;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+    }
+
+}
+
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+button:focus-visible {
+
+    outline:
+        3px solid #ffb300;
+
+    outline-offset:
+        3px;
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+
+        scroll-behavior: auto !important;
+
+        transition: none !important;
+
+    }
+
+    }    );
 
     border-radius: 0 0 28px 28px;
 
