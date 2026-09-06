@@ -1,8 +1,3 @@
-/* =========================================
-   ACHIEVERS HUB
-   CHAPTER-WISE QUIZ SYSTEM
-========================================= */
-
 let points = Number(localStorage.getItem("achieversPoints")) || 0;
 
 function contentBox() {
@@ -11,17 +6,13 @@ function contentBox() {
 
 function scrollToContent() {
     setTimeout(() => {
-        contentBox().scrollIntoView({
-            behavior: "smooth"
-        });
+        contentBox().scrollIntoView({ behavior: "smooth" });
     }, 100);
 }
 
 function button(text, action, className = "action-button") {
     return `
-        <button
-            class="${className}"
-            onclick="${action}">
+        <button class="${className}" onclick="${action}">
             ${text}
         </button>
     `;
@@ -32,11 +23,7 @@ function button(text, action, className = "action-button") {
 
 function goHome() {
     contentBox().innerHTML = "";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 
@@ -67,7 +54,6 @@ function showClasses() {
     html += `</section>`;
 
     contentBox().innerHTML = html;
-
     scrollToContent();
 }
 
@@ -76,12 +62,32 @@ function showClasses() {
 
 function openClass(classNumber) {
 
-    const classData = curriculum[classNumber];
+    if (
+        typeof curriculum === "undefined" ||
+        !curriculum[classNumber]
+    ) {
+        contentBox().innerHTML = `
+            <section>
+                <h2>📚 Class ${classNumber}</h2>
 
-    if (!classData) {
-        alert("Class not found.");
+                <div class="info-card">
+                    <h3>🚧 Coming Soon</h3>
+                    <p>Curriculum is not available yet.</p>
+                </div>
+
+                ${button(
+                    "⬅️ Back",
+                    "showClasses()",
+                    "action-button back-button"
+                )}
+            </section>
+        `;
+
+        scrollToContent();
         return;
     }
+
+    const classData = curriculum[classNumber];
 
     if (Object.keys(classData).length === 0) {
 
@@ -91,10 +97,7 @@ function openClass(classNumber) {
 
                 <div class="info-card">
                     <h3>🚧 Coming Soon</h3>
-                    <p>
-                        Curriculum for this class will be
-                        added soon.
-                    </p>
+                    <p>Subjects will be added soon.</p>
                 </div>
 
                 ${button(
@@ -116,15 +119,17 @@ function openClass(classNumber) {
             <p>Select a subject</p>
     `;
 
+
     Object.keys(classData).forEach(subject => {
 
         html += button(
             `📖 ${subject}`,
-            `openSubject('${subject}', ${classNumber})`,
+            `openSubject(${JSON.stringify(subject)}, ${classNumber})`,
             "action-button subject-button"
         );
 
     });
+
 
     html += button(
         "⬅️ Back to Classes",
@@ -140,91 +145,132 @@ function openClass(classNumber) {
 }
 
 
-/* SUBJECT */
+/* OPEN SUBJECT */
 
 function openSubject(subject, classNumber) {
 
-    const subjectData =
-        curriculum[classNumber][subject];
+    try {
 
-    const chapters =
-        subjectData.chapters || [];
+        const subjectData =
+            curriculum[classNumber][subject];
 
-    let html = `
-        <section>
+        if (!subjectData) {
+            throw new Error("Subject not found");
+        }
 
-            <h2>📖 ${subject}</h2>
-
-            <p>Class ${classNumber}</p>
-
-            <div class="info-card">
-                <h3>📚 Book</h3>
-                <p>${subjectData.book}</p>
-            </div>
-
-            <h3>📚 Chapters</h3>
-    `;
+        const chapters =
+            subjectData.chapters || [];
 
 
-    if (chapters.length === 0) {
+        let html = `
+            <section>
 
-        html += `
-            <div class="info-card">
-                <h3>🚧 Coming Soon</h3>
-                <p>
-                    Chapters will be added soon.
-                </p>
-            </div>
+                <h2>📖 ${subject}</h2>
+
+                <p>Class ${classNumber}</p>
+
+                <div class="info-card">
+                    <h3>📚 Book</h3>
+                    <p>${subjectData.book || "Class textbook"}</p>
+                </div>
+
+                <h3>📚 Chapters</h3>
         `;
 
-    } else {
 
-        chapters.forEach((chapter, index) => {
+        if (chapters.length === 0) {
 
             html += `
                 <div class="info-card">
-
-                    <h3>
-                        📖 ${chapter.title}
-                    </h3>
-
-                    ${button(
-                        "📚 Study Chapter",
-                        `openCurriculumLesson(
-                            ${classNumber},
-                            '${subject}',
-                            ${index}
-                        )`
-                    )}
-
-                    ${button(
-                        "📝 Take Quiz",
-                        `openChapterQuiz(
-                            ${classNumber},
-                            '${subject}',
-                            ${index}
-                        )`,
-                        "action-button subject-button"
-                    )}
-
+                    <h3>🚧 Coming Soon</h3>
+                    <p>
+                        Chapters for this subject
+                        will be added soon.
+                    </p>
                 </div>
             `;
 
-        });
+        } else {
+
+            chapters.forEach((chapter, index) => {
+
+                html += `
+                    <div class="info-card">
+
+                        <h3>📖 ${chapter.title}</h3>
+
+                        ${button(
+                            "📚 Study Chapter",
+                            `openCurriculumLesson(
+                                ${classNumber},
+                                ${JSON.stringify(subject)},
+                                ${index}
+                            )`
+                        )}
+
+                        ${button(
+                            "📝 Take Quiz",
+                            `openChapterQuiz(
+                                ${classNumber},
+                                ${JSON.stringify(subject)},
+                                ${index}
+                            )`,
+                            "action-button subject-button"
+                        )}
+
+                    </div>
+                `;
+
+            });
+        }
+
+
+        html += button(
+            "⬅️ Back to Subjects",
+            `openClass(${classNumber})`,
+            "action-button back-button"
+        );
+
+        html += `</section>`;
+
+        contentBox().innerHTML = html;
+
+        scrollToContent();
+
+    } catch (error) {
+
+        console.error(error);
+
+        contentBox().innerHTML = `
+            <section>
+
+                <h2>⚠️ Error</h2>
+
+                <div class="info-card">
+
+                    <h3>Something went wrong</h3>
+
+                    <p>
+                        The subject could not be loaded.
+                    </p>
+
+                    <p>
+                        Please check curriculum.js.
+                    </p>
+
+                </div>
+
+                ${button(
+                    "⬅️ Back to Classes",
+                    "showClasses()",
+                    "action-button back-button"
+                )}
+
+            </section>
+        `;
+
+        scrollToContent();
     }
-
-
-    html += button(
-        "⬅️ Back to Subjects",
-        `openClass(${classNumber})`,
-        "action-button back-button"
-    );
-
-    html += `</section>`;
-
-    contentBox().innerHTML = html;
-
-    scrollToContent();
 }
 
 
@@ -246,7 +292,6 @@ function openCurriculumLesson(
     }
 
     contentBox().innerHTML = `
-
         <section>
 
             <h2>📖 ${chapter.title}</h2>
@@ -263,7 +308,7 @@ function openCurriculumLesson(
                 "📝 Take Chapter Quiz",
                 `openChapterQuiz(
                     ${classNumber},
-                    '${subject}',
+                    ${JSON.stringify(subject)},
                     ${chapterIndex}
                 )`,
                 "action-button subject-button"
@@ -272,7 +317,7 @@ function openCurriculumLesson(
             ${button(
                 "⬅️ Back to Chapters",
                 `openSubject(
-                    '${subject}',
+                    ${JSON.stringify(subject)},
                     ${classNumber}
                 )`,
                 "action-button back-button"
@@ -285,9 +330,7 @@ function openCurriculumLesson(
 }
 
 
-/* =========================================
-   CHAPTER QUIZ
-========================================= */
+/* CHAPTER QUIZ */
 
 function openChapterQuiz(
     classNumber,
@@ -304,37 +347,27 @@ function openChapterQuiz(
         return;
     }
 
-
-    /* QUESTIONS */
-
-    const questions =
-        chapter.quiz || [];
-
+    const questions = chapter.quiz || [];
 
     if (questions.length === 0) {
 
         contentBox().innerHTML = `
-
             <section>
 
                 <h2>📝 Chapter Quiz</h2>
 
                 <div class="info-card">
-
                     <h3>🚧 Quiz Coming Soon</h3>
-
                     <p>
-                        Questions for this chapter
-                        will be added soon.
+                        Questions will be added soon.
                     </p>
-
                 </div>
 
                 ${button(
                     "⬅️ Back to Chapter",
                     `openCurriculumLesson(
                         ${classNumber},
-                        '${subject}',
+                        ${JSON.stringify(subject)},
                         ${chapterIndex}
                     )`,
                     "action-button back-button"
@@ -349,68 +382,52 @@ function openChapterQuiz(
 
 
     let html = `
-
         <section>
 
             <h2>📝 ${chapter.title} Quiz</h2>
 
-            <p>
-                Answer all questions
-            </p>
-
+            <p>Answer all questions</p>
     `;
 
 
     questions.forEach((question, index) => {
 
         html += `
-
             <div class="quiz-question">
 
-                <h3>
-                    Question ${index + 1}
-                </h3>
+                <h3>Question ${index + 1}</h3>
 
-                <p>
-                    ${question.question}
-                </p>
-
+                <p>${question.question}</p>
         `;
 
 
-        question.options.forEach(
-            (option, optionIndex) => {
+        question.options.forEach((option, optionIndex) => {
 
-                html += `
+            html += `
+                <button
+                    class="action-button quiz-option"
+                    onclick="checkAnswer(
+                        this,
+                        ${classNumber},
+                        ${JSON.stringify(subject)},
+                        ${chapterIndex},
+                        ${index},
+                        ${optionIndex}
+                    )">
 
-                    <button
-                        class="action-button quiz-option"
-                        onclick="checkAnswer(
-                            this,
-                            ${classNumber},
-                            '${subject}',
-                            ${chapterIndex},
-                            ${index},
-                            ${optionIndex}
-                        )">
+                    ${option}
 
-                        ${option}
+                </button>
+            `;
 
-                    </button>
-
-                `;
-
-            }
-        );
+        });
 
 
         html += `</div>`;
-
     });
 
 
     html += `
-
         <div class="points-box">
 
             ⭐ Current Points
@@ -425,7 +442,7 @@ function openChapterQuiz(
             "⬅️ Back to Chapter",
             `openCurriculumLesson(
                 ${classNumber},
-                '${subject}',
+                ${JSON.stringify(subject)},
                 ${chapterIndex}
             )`,
             "action-button back-button"
@@ -441,9 +458,7 @@ function openChapterQuiz(
 }
 
 
-/* =========================================
-   CHECK ANSWER
-========================================= */
+/* CHECK ANSWER */
 
 function checkAnswer(
     element,
@@ -459,15 +474,12 @@ function checkAnswer(
         .chapters[chapterIndex]
         .quiz[questionIndex];
 
-
-    const allButtons =
+    const buttons =
         element.parentElement
         .querySelectorAll(".quiz-option");
 
 
-    /* Prevent answering twice */
-
-    allButtons.forEach(btn => {
+    buttons.forEach(btn => {
         btn.disabled = true;
     });
 
@@ -488,19 +500,13 @@ function checkAnswer(
         element.innerText =
             "❌ Incorrect";
 
-        allButtons[
-            question.answer
-        ].classList.add("correct");
-
+        buttons[question.answer]
+            .classList.add("correct");
     }
 
 
-    /* Show updated points */
-
     const pointsNumber =
-        document.querySelector(
-            ".points-number"
-        );
+        document.querySelector(".points-number");
 
     if (pointsNumber) {
         pointsNumber.innerText = points;
@@ -526,7 +532,6 @@ function addPoints(amount) {
 function showProgress() {
 
     contentBox().innerHTML = `
-
         <section>
 
             <h2>🏆 My Progress</h2>
@@ -570,7 +575,6 @@ function showProgress() {
 function showMaterials() {
 
     contentBox().innerHTML = `
-
         <section>
 
             <h2>📖 Study Materials</h2>
@@ -604,12 +608,11 @@ function showMaterials() {
 }
 
 
-/* GENERAL QUIZ */
+/* QUICK QUIZ */
 
 function showQuiz() {
 
     contentBox().innerHTML = `
-
         <section>
 
             <h2>📝 Quick Quiz</h2>
@@ -664,15 +667,13 @@ function answerQuiz(element, correct) {
 
         addPoints(10);
 
-        element.disabled = true;
-
     } else {
 
         element.classList.add("wrong");
 
         element.innerText =
             "❌ Incorrect";
-
-        element.disabled = true;
     }
-}
+
+    element.disabled = true;
+        }
