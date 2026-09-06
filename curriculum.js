@@ -1,641 +1,412 @@
-/* =========================================
+/* =========================================================
    ACHIEVERS HUB
-   CLASS 10 MATHEMATICS
-   CHAPTER-WISE QUIZZES
-========================================= */
+   CBSE CURRICULUM SYSTEM
+   Classes 1 - 12
+   ========================================================= */
 
 const curriculum = {
 
-    /* Classes 1–9 */
-    1: {},
-    2: {},
-    3: {},
-    4: {},
-    5: {},
-    6: {},
-    7: {},
-    8: {},
-    9: {},
+    /* =====================================================
+       CLASS 1
+       ===================================================== */
 
+    1: {
 
-    /* =====================================
-       CLASS 10
-    ===================================== */
-
-    10: {
-
-        /* ================================
-           MATHEMATICS
-        ================================= */
+        "English": {
+            book: "CBSE English",
+            chapters: [
+                { title: "Reading Skills", content: "<p>Basic reading and comprehension.</p>", quiz: [] },
+                { title: "Writing Skills", content: "<p>Basic words and sentences.</p>", quiz: [] },
+                { title: "Grammar", content: "<p>Basic grammar and vocabulary.</p>", quiz: [] }
+            ]
+        },
 
         "Mathematics": {
-
-            book: "Class 10 Mathematics",
-
+            book: "CBSE Mathematics",
             chapters: [
-
-                /* CHAPTER 1 */
-
-                {
-                    title: "1. Real Numbers",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        Real numbers include rational and irrational numbers.
-                        </p>
-
-                        <p>
-                        Euclid's division algorithm can be used
-                        to find the HCF of two positive integers.
-                        </p>
-
-                        <h3>💡 Key Point</h3>
-
-                        <p>
-                        Every rational number can be written in
-                        the form p/q, where q ≠ 0.
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "Which of the following is a rational number?",
-                            options: [
-                                "√2",
-                                "3/4",
-                                "√5",
-                                "π"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "What is the HCF of 12 and 18?",
-                            options: [
-                                "2",
-                                "3",
-                                "6",
-                                "9"
-                            ],
-                            answer: 2
-                        },
-
-                        {
-                            question: "Which algorithm is used to find HCF?",
-                            options: [
-                                "Euclid's division algorithm",
-                                "Sorting algorithm",
-                                "Search algorithm",
-                                "None"
-                            ],
-                            answer: 0
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 2 */
-
-                {
-                    title: "2. Polynomials",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        A polynomial is an algebraic expression
-                        containing variables and coefficients.
-                        </p>
-
-                        <p>
-                        The values of x for which a polynomial
-                        becomes zero are called its zeroes.
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "What is a zero of a polynomial?",
-                            options: [
-                                "A value that makes the polynomial zero",
-                                "The highest coefficient",
-                                "The constant term",
-                                "The degree"
-                            ],
-                            answer: 0
-                        },
-
-                        {
-                            question: "What is the degree of 3x² + 2x + 1?",
-                            options: [
-                                "1",
-                                "2",
-                                "3",
-                                "0"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "A polynomial of degree 2 is called:",
-                            options: [
-                                "Linear",
-                                "Quadratic",
-                                "Cubic",
-                                "Constant"
-                            ],
-                            answer: 1
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 3 */
-
-                {
-                    title: "3. Pair of Linear Equations",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        A pair of linear equations contains
-                        two equations with two variables.
-                        </p>
-
-                        <p>
-                        They can be solved using substitution,
-                        elimination and graphical methods.
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "How many variables are generally used?",
-                            options: [
-                                "1",
-                                "2",
-                                "3",
-                                "4"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "Which is a method of solving linear equations?",
-                            options: [
-                                "Substitution",
-                                "Integration",
-                                "Differentiation",
-                                "Factorial"
-                            ],
-                            answer: 0
-                        },
-
-                        {
-                            question: "The graph of a linear equation in two variables is a:",
-                            options: [
-                                "Circle",
-                                "Parabola",
-                                "Straight line",
-                                "Triangle"
-                            ],
-                            answer: 2
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 4 */
-
-                {
-                    title: "4. Quadratic Equations",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        A quadratic equation is generally written as:
-                        </p>
-
-                        <p>
-                        ax² + bx + c = 0
-                        </p>
-
-                        <p>
-                        where a ≠ 0.
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "What is the highest power in a quadratic equation?",
-                            options: [
-                                "1",
-                                "2",
-                                "3",
-                                "4"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "Which is the general form of a quadratic equation?",
-                            options: [
-                                "ax + b = 0",
-                                "ax² + bx + c = 0",
-                                "ax³ + bx = 0",
-                                "a + b = c"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "If the discriminant is positive, the roots are:",
-                            options: [
-                                "Real and distinct",
-                                "Equal",
-                                "Not real",
-                                "Zero"
-                            ],
-                            answer: 0
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 5 */
-
-                {
-                    title: "5. Arithmetic Progressions",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        An arithmetic progression is a sequence
-                        in which the difference between consecutive
-                        terms is constant.
-                        </p>
-
-                        <p>
-                        nth term:
-                        aₙ = a + (n − 1)d
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "What is the common difference of 2, 5, 8, 11?",
-                            options: [
-                                "2",
-                                "3",
-                                "4",
-                                "5"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "What is the first term of 4, 7, 10?",
-                            options: [
-                                "4",
-                                "7",
-                                "10",
-                                "3"
-                            ],
-                            answer: 0
-                        },
-
-                        {
-                            question: "The nth term of an AP is:",
-                            options: [
-                                "a + nd",
-                                "a + (n − 1)d",
-                                "a − nd",
-                                "an + d"
-                            ],
-                            answer: 1
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 6 */
-
-                {
-                    title: "6. Triangles",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        Triangles are studied using similarity,
-                        proportionality and their properties.
-                        </p>
-
-                        <p>
-                        Similar triangles have the same shape,
-                        although their sizes may be different.
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "How many sides does a triangle have?",
-                            options: [
-                                "2",
-                                "3",
-                                "4",
-                                "5"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "Similar triangles have the same:",
-                            options: [
-                                "Shape",
-                                "Area always",
-                                "Perimeter always",
-                                "Size always"
-                            ],
-                            answer: 0
-                        },
-
-                        {
-                            question: "The sum of angles of a triangle is:",
-                            options: [
-                                "90°",
-                                "180°",
-                                "270°",
-                                "360°"
-                            ],
-                            answer: 1
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 7 */
-
-                {
-                    title: "7. Coordinate Geometry",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        Coordinate geometry uses the Cartesian plane
-                        to study geometric figures.
-                        </p>
-
-                        <p>
-                        A point is represented as (x, y).
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "A point is represented as:",
-                            options: [
-                                "(x, y)",
-                                "(x + y)",
-                                "x/y",
-                                "xy"
-                            ],
-                            answer: 0
-                        },
-
-                        {
-                            question: "The horizontal axis is called:",
-                            options: [
-                                "Y-axis",
-                                "X-axis",
-                                "Z-axis",
-                                "Origin"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "The point (0,0) is called:",
-                            options: [
-                                "Axis",
-                                "Quadrant",
-                                "Origin",
-                                "Vertex"
-                            ],
-                            answer: 2
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 8 */
-
-                {
-                    title: "8. Introduction to Trigonometry",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        Trigonometry studies the relationship between
-                        angles and sides of a right-angled triangle.
-                        </p>
-
-                        <p>
-                        sin θ = Opposite / Hypotenuse
-                        </p>
-
-                        <p>
-                        cos θ = Adjacent / Hypotenuse
-                        </p>
-
-                        <p>
-                        tan θ = Opposite / Adjacent
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "sin θ is equal to:",
-                            options: [
-                                "Adjacent/Hypotenuse",
-                                "Opposite/Hypotenuse",
-                                "Opposite/Adjacent",
-                                "Hypotenuse/Opposite"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "cos θ is equal to:",
-                            options: [
-                                "Opposite/Hypotenuse",
-                                "Adjacent/Hypotenuse",
-                                "Opposite/Adjacent",
-                                "Hypotenuse/Adjacent"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "tan θ is equal to:",
-                            options: [
-                                "Opposite/Adjacent",
-                                "Adjacent/Opposite",
-                                "Opposite/Hypotenuse",
-                                "Hypotenuse/Adjacent"
-                            ],
-                            answer: 0
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 9 */
-
-                {
-                    title: "9. Some Applications of Trigonometry",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        Trigonometry can be used to find
-                        heights and distances.
-                        </p>
-
-                        <p>
-                        Angles of elevation and depression
-                        are commonly used in these problems.
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "Trigonometry can be used to find:",
-                            options: [
-                                "Heights and distances",
-                                "Only mass",
-                                "Only temperature",
-                                "Only time"
-                            ],
-                            answer: 0
-                        },
-
-                        {
-                            question: "The angle looking upward from a horizontal line is called:",
-                            options: [
-                                "Angle of elevation",
-                                "Angle of depression",
-                                "Right angle",
-                                "Reflex angle"
-                            ],
-                            answer: 0
-                        },
-
-                        {
-                            question: "The angle looking downward is called:",
-                            options: [
-                                "Elevation",
-                                "Depression",
-                                "Acute",
-                                "Straight"
-                            ],
-                            answer: 1
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 10 */
-
-                {
-                    title: "10. Circles",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        A circle is the set of all points
-                        at a fixed distance from a fixed point.
-                        </p>
-
-                        <p>
-                        The fixed point is called the centre.
-                        </p>
-                    `,
-
-                    quiz: [
-
-                        {
-                            question: "The fixed point of a circle is called:",
-                            options: [
-                                "Radius",
-                                "Centre",
-                                "Chord",
-                                "Arc"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "A line segment joining the centre to a point on the circle is:",
-                            options: [
-                                "Diameter",
-                                "Radius",
-                                "Chord",
-                                "Tangent"
-                            ],
-                            answer: 1
-                        },
-
-                        {
-                            question: "A diameter is equal to:",
-                            options: [
-                                "Radius",
-                                "2 × Radius",
-                                "3 × Radius",
-                                "Radius/2"
-                            ],
-                            answer: 1
-                        }
-
-                    ]
-                },
-
-
-                /* CHAPTER 11 */
-
-                {
-                    title: "11. Areas Related to Circles",
-
-                    content: `
-                        <h3>📚 Study Notes</h3>
-
-                        <p>
-                        Areas and perimeters of circles,
-                        sectors and segme
+                { title: "Numbers", content: "<p>Learning numbers and counting.</p>", quiz: [] },
+                { title: "Addition", content: "<p>Basic addition.</p>", quiz: [] },
+                { title: "Subtraction", content: "<p>Basic subtraction.</p>", quiz: [] },
+                { title: "Shapes", content: "<p>Basic geometric shapes.</p>", quiz: [] },
+                { title: "Measurement", content: "<p>Basic measurement concepts.</p>", quiz: [] }
+            ]
+        },
+
+        "Environmental Studies": {
+            book: "Environmental Studies",
+            chapters: [
+                { title: "My Family", content: "<p>Learning about family.</p>", quiz: [] },
+                { title: "My School", content: "<p>Learning about school.</p>", quiz: [] },
+                { title: "Plants", content: "<p>Introduction to plants.</p>", quiz: [] },
+                { title: "Animals", content: "<p>Introduction to animals.</p>", quiz: [] },
+                { title: "Our Environment", content: "<p>Introduction to our surroundings.</p>", quiz: [] }
+            ]
+        },
+
+        "Hindi": {
+            book: "CBSE Hindi",
+            chapters: []
+        }
+    },
+
+
+    /* =====================================================
+       CLASS 2
+       ===================================================== */
+
+    2: {
+
+        "English": {
+            book: "CBSE English",
+            chapters: [
+                { title: "Reading", content: "<p>Reading and comprehension.</p>", quiz: [] },
+                { title: "Writing", content: "<p>Simple sentences and paragraphs.</p>", quiz: [] },
+                { title: "Grammar", content: "<p>Basic English grammar.</p>", quiz: [] }
+            ]
+        },
+
+        "Mathematics": {
+            book: "CBSE Mathematics",
+            chapters: [
+                { title: "Numbers", content: "<p>Numbers and place value.</p>", quiz: [] },
+                { title: "Addition and Subtraction", content: "<p>Operations with numbers.</p>", quiz: [] },
+                { title: "Multiplication", content: "<p>Introduction to multiplication.</p>", quiz: [] },
+                { title: "Division", content: "<p>Introduction to division.</p>", quiz: [] },
+                { title: "Shapes and Measurement", content: "<p>Basic geometry and measurement.</p>", quiz: [] }
+            ]
+        },
+
+        "Environmental Studies": {
+            book: "Environmental Studies",
+            chapters: [
+                { title: "Family and Friends", content: "<p>Family and relationships.</p>", quiz: [] },
+                { title: "Food", content: "<p>Food and healthy habits.</p>", quiz: [] },
+                { title: "Plants", content: "<p>Plants around us.</p>", quiz: [] },
+                { title: "Animals", content: "<p>Animals and their homes.</p>", quiz: [] },
+                { title: "Water", content: "<p>Importance of water.</p>", quiz: [] }
+            ]
+        },
+
+        "Hindi": {
+            book: "CBSE Hindi",
+            chapters: []
+        }
+    },
+
+
+    /* =====================================================
+       CLASS 3
+       ===================================================== */
+
+    3: {
+
+        "English": {
+            book: "CBSE English",
+            chapters: [
+                { title: "Reading", content: "<p>Reading comprehension.</p>", quiz: [] },
+                { title: "Writing", content: "<p>Paragraph writing.</p>", quiz: [] },
+                { title: "Grammar", content: "<p>Parts of speech and basic grammar.</p>", quiz: [] }
+            ]
+        },
+
+        "Mathematics": {
+            book: "CBSE Mathematics",
+            chapters: [
+                { title: "Numbers", content: "<p>Numbers and place value.</p>", quiz: [] },
+                { title: "Addition and Subtraction", content: "<p>Operations with larger numbers.</p>", quiz: [] },
+                { title: "Multiplication and Division", content: "<p>Multiplication and division.</p>", quiz: [] },
+                { title: "Fractions", content: "<p>Introduction to fractions.</p>", quiz: [] },
+                { title: "Geometry", content: "<p>Basic shapes and figures.</p>", quiz: [] },
+                { title: "Measurement", content: "<p>Length, weight and capacity.</p>", quiz: [] }
+            ]
+        },
+
+        "Environmental Studies": {
+            book: "Environmental Studies",
+            chapters: [
+                { title: "Family and Community", content: "<p>People and communities.</p>", quiz: [] },
+                { title: "Food", content: "<p>Food and nutrition.</p>", quiz: [] },
+                { title: "Water", content: "<p>Sources and uses of water.</p>", quiz: [] },
+                { title: "Plants and Animals", content: "<p>Living things around us.</p>", quiz: [] },
+                { title: "Travel", content: "<p>Different ways people travel.</p>", quiz: [] }
+            ]
+        },
+
+        "Hindi": {
+            book: "CBSE Hindi",
+            chapters: []
+        }
+    },
+
+
+    /* =====================================================
+       CLASS 4
+       ===================================================== */
+
+    4: {
+
+        "English": {
+            book: "CBSE English",
+            chapters: [
+                { title: "Reading Comprehension", content: "<p>Understanding texts.</p>", quiz: [] },
+                { title: "Creative Writing", content: "<p>Creative writing activities.</p>", quiz: [] },
+                { title: "Grammar", content: "<p>English grammar.</p>", quiz: [] }
+            ]
+        },
+
+        "Mathematics": {
+            book: "CBSE Mathematics",
+            chapters: [
+                { title: "Numbers", content: "<p>Large numbers and place value.</p>", quiz: [] },
+                { title: "Operations", content: "<p>Addition, subtraction, multiplication and division.</p>", quiz: [] },
+                { title: "Fractions", content: "<p>Fractions and their applications.</p>", quiz: [] },
+                { title: "Decimals", content: "<p>Introduction to decimals.</p>", quiz: [] },
+                { title: "Geometry", content: "<p>Lines, angles and shapes.</p>", quiz: [] },
+                { title: "Measurement", content: "<p>Units and measurement.</p>", quiz: [] }
+            ]
+        },
+
+        "Environmental Studies": {
+            book: "Environmental Studies",
+            chapters: [
+                { title: "Family and Society", content: "<p>Families and society.</p>", quiz: [] },
+                { title: "Food and Health", content: "<p>Food and healthy living.</p>", quiz: [] },
+                { title: "Water", content: "<p>Water resources.</p>", quiz: [] },
+                { title: "Plants and Animals", content: "<p>Living organisms.</p>", quiz: [] },
+                { title: "Environment", content: "<p>Our environment.</p>", quiz: [] }
+            ]
+        },
+
+        "Hindi": {
+            book: "CBSE Hindi",
+            chapters: []
+        }
+    },
+
+
+    /* =====================================================
+       CLASS 5
+       ===================================================== */
+
+    5: {
+
+        "English": {
+            book: "CBSE English",
+            chapters: [
+                { title: "Reading", content: "<p>Advanced reading comprehension.</p>", quiz: [] },
+                { title: "Writing", content: "<p>Paragraph and creative writing.</p>", quiz: [] },
+                { title: "Grammar", content: "<p>Grammar and vocabulary.</p>", quiz: [] }
+            ]
+        },
+
+        "Mathematics": {
+            book: "CBSE Mathematics",
+            chapters: [
+                { title: "Numbers", content: "<p>Large numbers and number operations.</p>", quiz: [] },
+                { title: "Fractions", content: "<p>Fractions and operations.</p>", quiz: [] },
+                { title: "Decimals", content: "<p>Decimals.</p>", quiz: [] },
+                { title: "Geometry", content: "<p>Shapes and angles.</p>", quiz: [] },
+                { title: "Measurement", content: "<p>Measurement and units.</p>", quiz: [] },
+                { title: "Data Handling", content: "<p>Organising and interpreting data.</p>", quiz: [] }
+            ]
+        },
+
+        "Environmental Studies": {
+            book: "Environmental Studies",
+            chapters: [
+                { title: "Family and Community", content: "<p>People and communities.</p>", quiz: [] },
+                { title: "Food and Health", content: "<p>Nutrition and health.</p>", quiz: [] },
+                { title: "Water and Resources", content: "<p>Water and natural resources.</p>", quiz: [] },
+                { title: "Plants and Animals", content: "<p>Biodiversity around us.</p>", quiz: [] },
+                { title: "Our Environment", content: "<p>Environmental awareness.</p>", quiz: [] }
+            ]
+        },
+
+        "Hindi": {
+            book: "CBSE Hindi",
+            chapters: []
+        }
+    },
+
+
+    /* =====================================================
+       CLASS 6
+       ===================================================== */
+
+    6: {
+
+        "English": {
+            book: "CBSE English",
+            chapters: [
+                { title: "Reading Skills", content: "<p>Reading comprehension and interpretation.</p>", quiz: [] },
+                { title: "Writing Skills", content: "<p>Writing paragraphs and messages.</p>", quiz: [] },
+                { title: "Grammar", content: "<p>Grammar and vocabulary.</p>", quiz: [] }
+            ]
+        },
+
+        "Mathematics": {
+            book: "CBSE Mathematics",
+            chapters: [
+                { title: "Knowing Our Numbers", content: "<p>Numbers and place value.</p>", quiz: [] },
+                { title: "Whole Numbers", content: "<p>Whole numbers and their properties.</p>", quiz: [] },
+                { title: "Playing with Numbers", content: "<p>Factors, multiples and divisibility.</p>", quiz: [] },
+                { title: "Basic Geometrical Ideas", content: "<p>Points, lines and shapes.</p>", quiz: [] },
+                { title: "Understanding Elementary Shapes", content: "<p>Angles and geometrical figures.</p>", quiz: [] },
+                { title: "Integers", content: "<p>Positive and negative numbers.</p>", quiz: [] },
+                { title: "Fractions", content: "<p>Fractions and operations.</p>", quiz: [] },
+                { title: "Decimals", content: "<p>Decimals and operations.</p>", quiz: [] },
+                { title: "Data Handling", content: "<p>Tables, graphs and data.</p>", quiz: [] },
+                { title: "Mensuration", content: "<p>Perimeter and area.</p>", quiz: [] },
+                { title: "Algebra", content: "<p>Variables and simple equations.</p>", quiz: [] },
+                { title: "Ratio and Proportion", content: "<p>Ratios and proportions.</p>", quiz: [] },
+                { title: "Symmetry", content: "<p>Symmetry in shapes.</p>", quiz: [] },
+                { title: "Practical Geometry", content: "<p>Geometrical constructions.</p>", quiz: [] }
+            ]
+        },
+
+        "Science": {
+            book: "CBSE Science",
+            chapters: [
+                { title: "Food", content: "<p>Food and its components.</p>", quiz: [] },
+                { title: "Materials", content: "<p>Materials around us.</p>", quiz: [] },
+                { title: "The Living Organisms", content: "<p>Living and non-living things.</p>", quiz: [] },
+                { title: "Motion and Measurement", content: "<p>Motion and measurement.</p>", quiz: [] },
+                { title: "Light", content: "<p>Light and shadows.</p>", quiz: [] },
+                { title: "Electricity", content: "<p>Basic electrical circuits.</p>", quiz: [] },
+                { title: "Magnets", content: "<p>Magnetic effects.</p>", quiz: [] },
+                { title: "Water", content: "<p>Water and its importance.</p>", quiz: [] },
+                { title: "Air", content: "<p>Air around us.</p>", quiz: [] },
+                { title: "Garbage", content: "<p>Waste management.</p>", quiz: [] }
+            ]
+        },
+
+        "Social Science": {
+            book: "CBSE Social Science",
+            chapters: [
+                { title: "History", content: "<p>Introduction to history.</p>", quiz: [] },
+                { title: "Geography", content: "<p>The Earth and its features.</p>", quiz: [] },
+                { title: "Civics", content: "<p>Understanding society and government.</p>", quiz: [] }
+            ]
+        },
+
+        "Hindi": {
+            book: "CBSE Hindi",
+            chapters: []
+        }
+    },
+
+
+    /* =====================================================
+       CLASS 7
+       ===================================================== */
+
+    7: {
+
+        "English": {
+            book: "CBSE English",
+            chapters: [
+                { title: "Reading", content: "<p>Reading comprehension.</p>", quiz: [] },
+                { title: "Writing", content: "<p>Writing skills.</p>", quiz: [] },
+                { title: "Grammar", content: "<p>Grammar and vocabulary.</p>", quiz: [] }
+            ]
+        },
+
+        "Mathematics": {
+            book: "CBSE Mathematics",
+            chapters: [
+                { title: "Integers", content: "<p>Operations with integers.</p>", quiz: [] },
+                { title: "Fractions and Decimals", content: "<p>Fractions and decimals.</p>", quiz: [] },
+                { title: "Data Handling", content: "<p>Data and graphs.</p>", quiz: [] },
+                { title: "Simple Equations", content: "<p>Solving equations.</p>", quiz: [] },
+                { title: "Lines and Angles", content: "<p>Geometrical relationships.</p>", quiz: [] },
+                { title: "The Triangle and Its Properties", content: "<p>Triangle properties.</p>", quiz: [] },
+                { title: "Comparing Quantities", content: "<p>Ratios, percentages and applications.</p>", quiz: [] },
+                { title: "Rational Numbers", content: "<p>Rational numbers.</p>", quiz: [] },
+                { title: "Perimeter and Area", content: "<p>Mensuration.</p>", quiz: [] },
+                { title: "Algebraic Expressions", content: "<p>Expressions and operations.</p>", quiz: [] },
+                { title: "Exponents and Powers", content: "<p>Exponents and powers.</p>", quiz: [] },
+                { title: "Symmetry", content: "<p>Symmetry.</p>", quiz: [] },
+                { title: "Visualising Solid Shapes", content: "<p>Three-dimensional shapes.</p>", quiz: [] }
+            ]
+        },
+
+        "Science": {
+            book: "CBSE Science",
+            chapters: [
+                { title: "Nutrition in Plants", content: "<p>How plants obtain food.</p>", quiz: [] },
+                { title: "Nutrition in Animals", content: "<p>Nutrition and digestion.</p>", quiz: [] },
+                { title: "Heat", content: "<p>Heat and temperature.</p>", quiz: [] },
+                { title: "Acids, Bases and Salts", content: "<p>Properties of acids and bases.</p>", quiz: [] },
+                { title: "Physical and Chemical Changes", content: "<p>Types of changes.</p>", quiz: [] },
+                { title: "Weather and Climate", content: "<p>Weather and climate.</p>", quiz: [] },
+                { title: "Winds, Storms and Cyclones", content: "<p>Atmospheric phenomena.</p>", quiz: [] },
+                { title: "Respiration in Organisms", content: "<p>Respiration.</p>", quiz: [] },
+                { title: "Transportation in Animals and Plants", content: "<p>Transport systems.</p>", quiz: [] },
+                { title: "Reproduction in Plants", content: "<p>Plant reproduction.</p>", quiz: [] },
+                { title: "Light", content: "<p>Reflection of light.</p>", quiz: [] },
+                { title: "Electric Current and Its Effects", content: "<p>Electric current.</p>", quiz: [] },
+                { title: "Motion and Time", content: "<p>Motion and measurement of time.</p>", quiz: [] },
+                { title: "Electricity", content: "<p>Basic electrical concepts.</p>", quiz: [] }
+            ]
+        },
+
+        "Social Science": {
+            book: "CBSE Social Science",
+            chapters: [
+                { title: "History", content: "<p>Medieval Indian history.</p>", quiz: [] },
+                { title: "Geography", content: "<p>Environment and geography.</p>", quiz: [] },
+                { title: "Civics", content: "<p>Government and democracy.</p>", quiz: [] }
+            ]
+        },
+
+        "Hindi": {
+            book: "CBSE Hindi",
+            chapters: []
+        }
+    },
+
+
+    /* =====================================================
+       CLASS 8
+       ===================================================== */
+
+    8: {
+
+        "English": {
+            book: "CBSE English",
+            chapters: [
+                { title: "Reading Skills", content: "<p>Reading and interpretation.</p>", quiz: [] },
+                { title: "Writing Skills", content: "<p>Writing activities.</p>", quiz: [] },
+                { title: "Grammar", content: "<p>Advanced grammar.</p>", quiz: [] }
+            ]
+        },
+
+        "Mathematics": {
+            book: "CBSE Mathematics",
+            chapters: [
+                { title: "Rational Numbers", content: "<p>Rational numbers.</p>", quiz: [] },
+                { title: "Linear Equations", content: "<p>Linear equations.</p>", quiz: [] },
+                { title: "Understanding Quadrilaterals", content: "<p>Quadrilaterals.</p>", quiz: [] },
+                { title: "Practical Geometry", content: "<p>Construction of figures.</p>", quiz: [] },
+                { title: "Data Handling", content: "<p>Data representation.</p>", quiz: [] },
+                { title: "Squares and Square Roots", content: "<p>Squares and square roots.</p>", quiz: [] },
+                { title: "Cubes and Cube Roots", content: "<p>Cubes and cube roots.</p>", quiz: [] },
+                { title: "Comparing Quantities", content: "<p>Percentages and applications.</p>", quiz: [] },
+                { title: "Algebraic Expressions", content: "<p>Algebraic expressions.</p>", quiz: [] },
+                { title: "Visualising Solid Shapes", content: "<p>Solid geometry.</p>", quiz: [] },
+                { title: "Mensuration", content: "<p>Area and volume.</p>", quiz: [] },
+                { title: "Exponents and Powers", content: "<p>Exponents.</p>", quiz: [] },
+                { title: "Direct and Inverse Proportion", content: "<p>Proportion.</p>", quiz: [] },
+                { title: "Factorisation", content: "<p>Factorisation.</p>", quiz: [] },
+                { title: "Graphs", content: "<p>Graphs and coordinates.</p>", quiz: [] }
+            ]
+        },
+
+        "Science": {
+            book: "CBSE Science",
+            chapters: [
+                { title: "Crop Production", content: "<p>Agricultural practices.</p>", quiz: [] },
+                { title: "Microorganisms", content: "<p>Microorganisms and their uses.</p>", quiz: [] },
+                { title: "Coal and Petroleum", content: "<p>Fossil fuels.</p>", quiz: [] },
+                { title: "Combustion and Flame", content: "<p>Combustion.</p>", quiz: [] },
+                { title: "Conservation of Plants and Ani
