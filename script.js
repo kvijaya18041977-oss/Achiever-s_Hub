@@ -1,27 +1,19 @@
 /* =========================================
    ACHIEVERS HUB
-   Main JavaScript
+   MAIN JAVASCRIPT
 ========================================= */
 
 
-/* ---------- POINTS ---------- */
+/* POINTS */
 
 let points =
-    Number(
-        localStorage.getItem(
-            "achieversPoints"
-        )
-    ) || 0;
+    Number(localStorage.getItem("achieversPoints")) || 0;
 
 
-/* ---------- HELPERS ---------- */
+/* HELPERS */
 
 function contentBox() {
-
-    return document.getElementById(
-        "appContent"
-    );
-
+    return document.getElementById("appContent");
 }
 
 
@@ -51,11 +43,10 @@ function button(
             ${text}
         </button>
     `;
-
 }
 
 
-/* ---------- HOME ---------- */
+/* HOME */
 
 function goHome() {
 
@@ -65,34 +56,23 @@ function goHome() {
         top: 0,
         behavior: "smooth"
     });
-
 }
 
 
-/* ---------- CLASSES ---------- */
+/* CLASSES */
 
 function showClasses() {
 
     let html = `
-
         <section>
 
-            <h2>
-                📚 Classes 1–12
-            </h2>
+            <h2>📚 Classes 1–12</h2>
 
-            <p>
-                Select your class
-            </p>
-
+            <p>Select your class</p>
     `;
 
 
-    for (
-        let i = 1;
-        i <= 12;
-        i++
-    ) {
+    for (let i = 1; i <= 12; i++) {
 
         html += button(
             `📘 Class ${i}`,
@@ -110,24 +90,18 @@ function showClasses() {
     );
 
 
-    html += `
-        </section>
-    `;
+    html += `</section>`;
 
 
-    contentBox().innerHTML =
-        html;
+    contentBox().innerHTML = html;
 
     scrollToContent();
-
 }
 
 
-/* ---------- CLASS ---------- */
+/* OPEN CLASS */
 
-function openClass(
-    classNumber
-) {
+function openClass(classNumber) {
 
     const classData =
         curriculum[classNumber];
@@ -143,18 +117,23 @@ function openClass(
                     📚 Class ${classNumber}
                 </h2>
 
-                <p>
-                    Curriculum not available yet.
-                </p>
+                <div class="info-card">
+
+                    <h3>🚧 Coming Soon</h3>
+
+                    <p>
+                        Curriculum is not available yet.
+                    </p>
+
+                </div>
 
                 ${button(
-                    "⬅️ Back to Classes",
+                    "⬅️ Back",
                     "showClasses()",
                     "action-button back-button"
                 )}
 
             </section>
-
         `;
 
         scrollToContent();
@@ -174,23 +153,20 @@ function openClass(
             <p>
                 Select a subject
             </p>
-
     `;
 
 
-    Object.keys(classData)
-        .forEach(function(subject) {
+    Object.keys(classData).forEach(
+        function(subject) {
 
             html += button(
                 `📖 ${subject}`,
-                `openSubject(
-                    '${subject}',
-                    ${classNumber}
-                )`,
+                `openSubject('${subject}', ${classNumber})`,
                 "action-button subject-button"
             );
 
-        });
+        }
+    );
 
 
     html += button(
@@ -200,40 +176,36 @@ function openClass(
     );
 
 
-    html += `
-        </section>
-    `;
+    html += `</section>`;
 
 
-    contentBox().innerHTML =
-        html;
+    contentBox().innerHTML = html;
 
     scrollToContent();
-
 }
 
 
-/* ---------- SUBJECT ---------- */
+/* SUBJECT */
 
 function openSubject(
     subject,
     classNumber
 ) {
 
-    const classData =
-        curriculum[classNumber];
-
-
     const subjectData =
-        classData
-            ? classData[subject]
-            : null;
+        curriculum[classNumber][subject];
+
+
+    if (!subjectData) {
+
+        alert("Subject not found.");
+
+        return;
+    }
 
 
     const chapters =
-        subjectData
-            ? subjectData.chapters
-            : [];
+        subjectData.chapters || [];
 
 
     let html = `
@@ -250,16 +222,10 @@ function openSubject(
 
             <div class="info-card">
 
-                <h3>
-                    📚 Book
-                </h3>
+                <h3>📚 Book</h3>
 
                 <p>
-                    ${
-                        subjectData
-                            ? subjectData.book
-                            : "Book not available"
-                    }
+                    ${subjectData.book}
                 </p>
 
             </div>
@@ -267,13 +233,10 @@ function openSubject(
             <h3>
                 📚 Chapters
             </h3>
-
     `;
 
 
-    if (
-        chapters.length === 0
-    ) {
+    if (chapters.length === 0) {
 
         html += `
 
@@ -284,24 +247,16 @@ function openSubject(
                 </h3>
 
                 <p>
-                    Chapters for
-                    ${subject}
-                    will be added soon.
+                    Chapters will be added soon.
                 </p>
 
             </div>
-
         `;
 
-    }
-
-    else {
+    } else {
 
         chapters.forEach(
-            function(
-                chapter,
-                index
-            ) {
+            function(chapter, index) {
 
                 html += button(
                     `📖 ${chapter.title}`,
@@ -326,20 +281,16 @@ function openSubject(
     );
 
 
-    html += `
-        </section>
-    `;
+    html += `</section>`;
 
 
-    contentBox().innerHTML =
-        html;
+    contentBox().innerHTML = html;
 
     scrollToContent();
-
 }
 
 
-/* ---------- CURRICULUM LESSON ---------- */
+/* CHAPTER */
 
 function openCurriculumLesson(
     classNumber,
@@ -351,38 +302,16 @@ function openCurriculumLesson(
         curriculum[classNumber][subject];
 
 
-    if (
-        !subjectData ||
-        !subjectData.chapters
-    ) {
-
-        alert(
-            "Chapter information not found."
-        );
-
-        return;
-    }
-
-
     const chapter =
-        subjectData.chapters[
-            chapterIndex
-        ];
+        subjectData.chapters[chapterIndex];
 
 
     if (!chapter) {
 
-        alert(
-            "Chapter not found."
-        );
+        alert("Chapter not found.");
 
         return;
     }
-
-
-    let content =
-        chapter.content ||
-        "Study content will be added soon.";
 
 
     contentBox().innerHTML = `
@@ -406,7 +335,7 @@ function openCurriculumLesson(
                 </h3>
 
                 <p>
-                    ${content}
+                    ${chapter.content}
                 </p>
 
             </div>
@@ -446,16 +375,14 @@ function openCurriculumLesson(
             )}
 
         </section>
-
     `;
 
 
     scrollToContent();
-
 }
 
 
-/* ---------- COMPLETE CHAPTER ---------- */
+/* COMPLETE */
 
 function completeChapter(
     classNumber,
@@ -467,8 +394,7 @@ function completeChapter(
 
 
     alert(
-        "🎉 Chapter completed!\n\n" +
-        "+10 Points ⭐"
+        "🎉 Chapter completed!\n\n+10 Points ⭐"
     );
 
 
@@ -477,15 +403,12 @@ function completeChapter(
         subject,
         chapterIndex
     );
-
 }
 
 
-/* ---------- ADD POINTS ---------- */
+/* POINTS */
 
-function addPoints(
-    amount
-) {
+function addPoints(amount) {
 
     points += amount;
 
@@ -494,11 +417,10 @@ function addPoints(
         "achieversPoints",
         points
     );
-
 }
 
 
-/* ---------- PROGRESS ---------- */
+/* PROGRESS */
 
 function showProgress() {
 
@@ -509,7 +431,6 @@ function showProgress() {
             <h2>
                 🏆 My Progress
             </h2>
-
 
             <div class="points-box">
 
@@ -532,7 +453,7 @@ function showProgress() {
 
                 <p>
                     Complete chapters and
-                    quizzes to earn more points.
+                    quizzes to earn points.
                 </p>
 
             </div>
@@ -545,16 +466,14 @@ function showProgress() {
             )}
 
         </section>
-
     `;
 
 
     scrollToContent();
-
 }
 
 
-/* ---------- STUDY MATERIALS ---------- */
+/* STUDY MATERIALS */
 
 function showMaterials() {
 
@@ -565,7 +484,6 @@ function showMaterials() {
             <h2>
                 📖 Study Materials
             </h2>
-
 
             <div class="info-card">
 
@@ -587,21 +505,6 @@ function showMaterials() {
             )}
 
 
-            <div class="info-card">
-
-                <h3>
-                    🚧 More Coming
-                </h3>
-
-                <p>
-                    Notes, exercises and
-                    learning resources
-                    will be added here.
-                </p>
-
-            </div>
-
-
             ${button(
                 "🏠 Home",
                 "goHome()",
@@ -609,16 +512,14 @@ function showMaterials() {
             )}
 
         </section>
-
     `;
 
 
     scrollToContent();
-
 }
 
 
-/* ---------- QUIZ ---------- */
+/* QUIZ */
 
 function showQuiz() {
 
@@ -629,7 +530,6 @@ function showQuiz() {
             <h2>
                 📝 Quick Quiz
             </h2>
-
 
             <div class="quiz-question">
 
@@ -672,16 +572,14 @@ function showQuiz() {
             )}
 
         </section>
-
     `;
 
 
     scrollToContent();
-
 }
 
 
-/* ---------- QUIZ ANSWER ---------- */
+/* QUIZ ANSWER */
 
 function answerQuiz(
     element,
@@ -690,226 +588,23 @@ function answerQuiz(
 
     if (correct) {
 
-        element.classList.add(
-            "correct"
-        );
+        element.classList.add("correct");
 
         element.innerText =
             "✅ Correct! +10 Points";
 
-
         addPoints(10);
 
-    }
-
-    else {
-
-        element.classList.add(
-            "wrong"
-        );
-
-        element.innerText =
-            "❌ Incorrect";
-
-    }
-
-}
-            <h2>
-                🏆 My Progress
-            </h2>
-
-
-            <div class="points-box">
-
-                <div>
-                    ⭐ Your Points
-                </div>
-
-                <div class="points-number">
-                    ${points}
-                </div>
-
-            </div>
-
-
-            <p>
-                Keep learning and earn more
-                points!
-            </p>
-
-
-            ${button(
-                "🏠 Home",
-                "goHome()",
-                "action-button back-button"
-            )}
-
-        </section>
-
-    `;
-
-
-    scrollToContent();
-
-}
-
-
-/* ---------- STUDY MATERIALS ---------- */
-
-function showMaterials() {
-
-    contentBox().innerHTML = `
-
-        <section>
-
-            <h2>
-                📖 Study Materials
-            </h2>
-
-
-            <div class="info-card">
-
-                <h3>
-                    📚 Class-wise Materials
-                </h3>
-
-                <p>
-                    Select a class to access
-                    your study materials.
-                </p>
-
-            </div>
-
-
-            ${button(
-                "📚 Browse Classes",
-                "showClasses()"
-            )}
-
-
-            <div class="info-card">
-
-                <h3>
-                    🚧 More Coming
-                </h3>
-
-                <p>
-                    Notes, exercises and other
-                    learning resources can be
-                    added here.
-                </p>
-
-            </div>
-
-
-            ${button(
-                "🏠 Home",
-                "goHome()",
-                "action-button back-button"
-            )}
-
-        </section>
-
-    `;
-
-
-    scrollToContent();
-
-}
-
-
-/* ---------- QUIZ ---------- */
-
-function showQuiz() {
-
-    contentBox().innerHTML = `
-
-        <section>
-
-            <h2>
-                📝 Quick Quiz
-            </h2>
-
-
-            <div class="quiz-question">
-
-                <h3>
-                    Question 1
-                </h3>
-
-                <p>
-                    What is 5 + 5?
-                </p>
-
-
-                ${button(
-                    "10",
-                    "answerQuiz(this, true)",
-                    "action-button quiz-option"
-                )}
-
-
-                ${button(
-                    "15",
-                    "answerQuiz(this, false)",
-                    "action-button quiz-option"
-                )}
-
-
-                ${button(
-                    "20",
-                    "answerQuiz(this, false)",
-                    "action-button quiz-option"
-                )}
-
-            </div>
-
-
-            ${button(
-                "🏠 Home",
-                "goHome()",
-                "action-button back-button"
-            )}
-
-        </section>
-
-    `;
-
-
-    scrollToContent();
-
-}
-
-
-/* ---------- QUIZ ANSWER ---------- */
-
-function answerQuiz(
-    element,
-    correct
-) {
-
-    if (correct) {
-
-        element.classList.add(
-            "correct"
-        );
-
-        element.innerText =
-            "✅ Correct! +10 Points";
-
-
-        addPoints(10);
-
+        element.disabled = true;
 
     } else {
 
-        element.classList.add(
-            "wrong"
-        );
+        element.classList.add("wrong");
 
         element.innerText =
             "❌ Incorrect";
 
-    }
+        element.disabled = true;
 
-}
+    }
+   }
